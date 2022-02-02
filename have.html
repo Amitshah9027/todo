@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-list</title>
+  </head>
+  <body>
+    <input id="hello" />
+    <button onclick="amit()">Add</button>
+    <br />
+    <br />
+    <br />
+
+    <ul id="hee" style="list-style: none; float: left">
+      <button onclick="dn();">add</button>
+    </ul>
+    <ul
+      id="heee"
+      style="
+        list-style: none;
+        float: left;
+        height: 100px;
+        background-color: aquamarine;
+      "
+    >
+      <p>Check yup</p>
+    </ul>
+  </body>
+  <script>
+    var liss = [];
+    const lpti = [];
+
+    var lp = document.querySelector("#hee");
+
+    var lps = document.querySelector("#heee");
+
+    var t = "";
+
+    function amit() {
+      const data = document.getElementById("hello").value;
+      liss.push(data);
+      if (liss.length === 0) {
+        amit();
+      } else {
+        var lis = document.createElement("li");
+        var li = document.createElement("input");
+        li.type = "checkbox";
+        for (i = 0; i < liss.length; i++) {
+          lis.textContent = liss[i];
+          lp.append(li);
+          lp.append(lis);
+        }
+
+        if (lpti.length === 0) {
+          console.log("check");
+          console.log(liss);
+          li.addEventListener("click", function () {
+            lpti.push(lis.innerText);
+            for (i = 0; i < lpti.length; i++) {
+              lis.textContent = lpti[i];
+
+              lps.append(lis);
+            }
+          });
+        } else if (lpti.length != 0) {
+          li.addEventListener("click", function () {
+            lpti.push(lis.innerText);
+            for (i = 0; i < lpti.length; i++) {
+              lis.textContent = lpti[i];
+
+              lps.append(lis);
+            }
+          });
+        } else {
+          li.addEventListener("click", function () {
+            lps.remove(lis);
+          });
+        }
+      }
+      console.log(liss);
+    }
+
+    function dn() {}
+    //   } else {
+    //     console.log("not");
+    //   }
+
+    // let values = [];
+    //     checkboxes.forEach((checkbox) => {
+    //       values.push(checkbox.value);
+    //     });
+    //     alert(values);
+    // for (i = 0; i < liss.length; i++) {
+    //   lp.append(liss[i]);
+    // }
+  </script>
+</html>
